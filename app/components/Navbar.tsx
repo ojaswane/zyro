@@ -8,9 +8,9 @@ const Navbar = async () => {
   const session = await auth();
 
   return (
-    <header className="bg-white shadow-md px-5 py-3 font-work-sans">
+    <header className="bg-white shadow-md px-5 py-3 font-work-sans border-b ">
       <nav className="flex justify-between items-center text-black">
-        <Link href="/" className="text-2xl font-bold">
+        <Link href="/" className="text-2xl font-bold font-monaco">
           Zyro
         </Link>
 
