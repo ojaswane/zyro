@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
     <>
@@ -16,7 +14,8 @@ export default function Home() {
             <p className="text-lg font-light text-gray-500 mt-10">Find entrepreneurs, investors, and innovators in your field</p>
 
 
-            <input type="search" placeholder="search by name , company , location or category... " className="w-2xl p-3.5 mt-8 text-black  bg-gray-200 border-gray-400 rounded focus:border-gray-400 "/>
+            <input type="search" placeholder="search by name , company , location or category... " className="w-2xl p-3.5 mt-8 text-black  bg-gray-200 border-gray-400 rounded focus:outline-none focus:ring-2 focus:ring-gray-500"/>
+             <i className="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
         </div>
       </div>
     </>
