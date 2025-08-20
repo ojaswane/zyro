@@ -16,10 +16,9 @@ export default function Home() {
             <p className="text-lg font-light text-gray-500 mt-10">Find entrepreneurs, investors, and innovators in your field</p>
 
 
-            <input type="search" placeholder="Search " name="" id=""  className="w-96 p-3 mt-6 text-black border-3  border-gray-400 rounded focus:border-gray-400 "/>
+            <input type="search" placeholder="search by name , company , location or category... " className="w-2xl p-3.5 mt-8 text-black  bg-gray-200 border-gray-400 rounded focus:border-gray-400 "/>
         </div>
       </div>
     </>
   );
 }
-  
