@@ -5,9 +5,9 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
 
   return (
     <>
-      <div className="flex items-center h-screen w-full flex-col bg-white ">
-        <div className="my-20 font-bold  text-black text-8xl  w-1/2">
-          <h2 className="text-center  font-lobster">Turn Your Ideas Into
+        <div className="flex items-center h-screen w-full flex-col bg-black text-white">
+        <div className="my-20 font-bold    w-1/2">
+          <h2 className="text-center text-8xl font-lobster">Turn Your Ideas Into
             <div className=" w-full">
               <Animatetext />
             </div>
@@ -17,8 +17,8 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
           </div>
         </div>
 
-        <div className="flex flex-col items-center">
-          <h1 className="text-black text-2xl font-bold text-center ">Discover People</h1>
+        <div className="flex flex-col items-center mt-20">
+          <h1 className=" text-2xl font-bold text-center ">Discover People</h1>
           <p className="text-lg font-light text-gray-500 mt-10">Find entrepreneurs, investors, and innovators in your field</p>
 
           <Searchcomponent query={query} />

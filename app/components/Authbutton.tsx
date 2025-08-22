@@ -8,7 +8,7 @@ import { Session } from "next-auth";
 
 const NavbarClient = ({ session }: { session: Session | null }) => {
   return (
-    <div className="flex items-center gap-4 text-black">
+    <div className="flex items-center gap-4 ">
       {session?.user ? (
         <>
           <Link href="/startup/create">Create Startup</Link>

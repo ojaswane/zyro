@@ -8,8 +8,8 @@ const Navbar = async () => {
   const session = await auth();
 
   return (
-    <header className="bg-white shadow-md px-5 py-3 font-work-sans border-b ">
-      <nav className="flex justify-between items-center text-black">
+    <header className=" shadow-md px-5 py-3 font-work-sans border-b border-gray-300 bg-black text-white">
+      <nav className="flex justify-between items-center ">
         <Link href="/" className="text-2xl font-bold font-monaco">
           Zyro
         </Link>
