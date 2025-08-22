@@ -262,11 +262,10 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
             })}
           </motion.span>
         </AnimatePresence>
-      </motion.span>
+      </motion.span>  
     );
   }
 );
 
 RotatingText.displayName = "RotatingText";
 export default RotatingText;
-x

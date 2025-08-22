@@ -6,9 +6,12 @@ export default async function Home({ searchParams }: { searchParams: Promise<{ q
   return (
     <>
       <div className="flex items-center h-screen w-full flex-col bg-white ">
-        <div className="my-20 font-bold  text-black text-6xl  w-1/2">
-          <h2 className="text-center  font-lobster">Turn Your Ideas <Animatetext />
-            <br /> Reality</h2>
+        <div className="my-20 font-bold  text-black text-8xl  w-1/2">
+          <h2 className="text-center  font-lobster">Turn Your Ideas Into
+            <div className=" w-full">
+              <Animatetext />
+            </div>
+          </h2>
           <div className="text-gray-500 text-center text-xl mt-10 font-light">
             Connect with investors, showcase your vision, and build the future. Join thousands of entrepreneurs who are already making their mark.
           </div>
