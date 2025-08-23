@@ -1,11 +1,11 @@
-import Animatetext from "../components/Animatetext";
-import Searchcomponent from "../components/Searchcomponent";
+import Animatetext from "../../components/components/Animatetext";
+import Searchcomponent from "../../components/components/Searchcomponent";
 export default async function Home({ searchParams }: { searchParams: Promise<{ query: string }> }) {
   const query = (await searchParams).query;
 
   return (
     <>
-        <div className="flex items-center h-screen w-full flex-col bg-black text-white">
+      <div className="flex items-center h-screen w-full flex-col bg-black text-white">
         <div className="my-20 font-bold    w-1/2">
           <h2 className="text-center text-8xl font-lobster">Turn Your Ideas Into
             <div className=" w-full">
