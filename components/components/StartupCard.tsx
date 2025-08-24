@@ -1,7 +1,21 @@
 import React from 'react'
 import Image from 'next/image'
 import { Heart, Eye } from 'lucide-react'
+
+type StartupCardType = {
+    _createdAt: string;   
+    title: string;
+    description: string;
+    image: string;
+    views: number;
+    _id: number;
+    category: string;
+    name: string;
+  }
+
+
 function StartupCard({posts} : { posts : StartupCardType }) {
+
   return (
      <div className="w-full max-w-sm bg-gray-100 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
       {/* Header */}
@@ -18,7 +32,7 @@ function StartupCard({posts} : { posts : StartupCardType }) {
         </div>
         <button className="text-gray-500 hover:text-gray-700">
           ✏️
-        </button>
+        </button> 
       </div>
 
       {/* Image Placeholder */}
