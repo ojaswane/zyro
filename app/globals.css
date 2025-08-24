@@ -119,4 +119,16 @@
   body {
     @apply bg-background text-foreground;
   }
+
+}
+
+@layer utilities {
+  /* .card_grid {
+    @apply grid md:grid-cols-3 sm:grid-cols-2 gap2
+  }
+  
+  .card_grid-sm{
+    @apply grid sm:grid-cols-2  gap-5
+  } */
+
 }
