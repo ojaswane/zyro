@@ -17,9 +17,9 @@ type StartupCardType = {
 function StartupCard({posts} : { posts : StartupCardType }) {
 
   return (
-     <div className="w-full max-w-sm bg-gray-100 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
+     <div className=" w-full px-2 py-2  max-w-sm bg-gray-600 mb-20 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
       {/* Header */}
-      <div className="flex items-center justify-between px-4 py-3 bg-gray-200">
+      <div className="flex items-center justify-between px-4 py-3 bg-gray-200 rounded-t-xl">
         <div className="flex items-center gap-3">
           <Image
             src={posts.image || " image "}
@@ -36,7 +36,7 @@ function StartupCard({posts} : { posts : StartupCardType }) {
       </div>
 
       {/* Image Placeholder */}
-      <div className="h-40 bg-gray-300 flex items-center justify-center text-gray-500 text-sm">
+      <div className="h-40 bg-gray-300 flex items-center justify-center text-gray-500 text-sm rounded-b-xl">
         Image Placeholder
       </div>
 

@@ -10,7 +10,7 @@ export default async function Home({
   const query = (await searchParams).query;
 
   const posts = [
-    
+
     {
       _createdAt: new Date().toISOString(),
       title: "Test Post",
@@ -58,12 +58,12 @@ export default async function Home({
       </section>
 
       {/* STARTUPS SECTION */}
-      <section className="w-full px-4 md:px-8 lg:px-16 mt-16 md:mt-20 flex flex-col items-center">
+      <section className="w-full  md:px-8 lg:px-16 mt-16 md:mt-20 flex flex-col items-center px-32">
         <p className="text-lg sm:text-xl md:text-2xl font-bold self-start">
           {query ? `Search results for "${query}"` : "Trending Startups"}
         </p>
 
-        <ul className="mt-8 md:mt-10 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full">
+        <ul className="mt-8 md:mt-10 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full px-50">
           {posts?.length > 0 ? (
             posts.map((post: StartupCardType, index: number) => (
               <StartupCard key={post?._id} posts={post} />
