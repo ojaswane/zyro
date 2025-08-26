@@ -2,7 +2,8 @@ import React from 'react'
 import Image from 'next/image'
 import { Heart, Eye } from 'lucide-react'
 import SpotlightCard from '@/Animation/SpotlightCard'
-
+import { ExternalLink } from 'lucide-react'
+import Link from 'next/link'
 type StartupCardType = {
   _createdAt: string;
   title: string;
@@ -32,8 +33,12 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
             />
             <span className="text-gray-800 font-medium">{posts.name}</span>
           </div>
-          <button className="text-gray-500 hover:text-gray-700">
-            ✏️
+          <button className="text-gray-500 cursor-pointer hover:text-gray-700">
+
+            <Link href= '/Startupview' >
+              <ExternalLink />
+            </Link>
+
           </button>
         </div>
 
