@@ -1,6 +1,7 @@
 import Animatetext from "../../components/components/Animatetext";
 import Searchcomponent from "../../components/components/Searchcomponent";
 import StartupCard from "../../components/components/StartupCard";
+import DarkVeil from '@/Animation/Background';
 
 export default async function Home({
   searchParams,
@@ -27,21 +28,27 @@ export default async function Home({
 
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-black text-white">
-      {/* HERO SECTION */}
-      <section className="flex flex-col items-center justify-center w-full px-4 md:px-8 lg:px-16 my-16 md:my-20">
-        <div className="w-full max-w-4xl text-center">
-          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-lobster font-bold leading-tight">
+      <section className="relative flex flex-col items-center justify-center w-full px-4 md:px-8 lg:px-16 min-h-screen ">
+        {/* DarkVeil Background */}
+        <div className="absolute inset-0 z-0">
+          <DarkVeil />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 w-full max-w-4xl text-center ">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-lobster font-semibold leading-tight">
             Turn Your Ideas Into
-            <div className="w-full">
+            <div className="flex justify-center">
               <Animatetext />
             </div>
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg md:text-xl font-light mt-6 md:mt-10 px-2">
+          <p className="text-gray-300 text-base sm:text-lg md:text-xl font-light mt-10 md:mt-10 px-2">
             Connect with investors, showcase your vision, and build the future.
             Join thousands of entrepreneurs who are already making their mark.
           </p>
         </div>
       </section>
+
 
       {/* DISCOVER PEOPLE SECTION */}
       <section className="flex flex-col items-center w-full px-4 md:px-8 lg:px-16 mt-16 md:mt-20">
