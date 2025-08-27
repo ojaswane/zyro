@@ -6,8 +6,8 @@ const loading = () => {
         <div>
             {/* <PuffLoader /> */}
 
-            <div className='flex justify-center items-center h-screen'>
-                <BarLoader />
+            <div className='flex justify-center items-center h-screen bg-black  '>
+                <BarLoader color="#fff6f6" />
             </div>
         </div>
     )

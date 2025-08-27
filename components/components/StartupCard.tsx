@@ -19,7 +19,7 @@ type StartupCardType = {
 function StartupCard({ posts }: { posts: StartupCardType }) {
 
   return (
-    <SpotlightCard className="custom-spotlight-card" >
+    <SpotlightCard className="custom-spotlight-card " >
       <div className=" w-full px-2 py-2  max-w-sm bg-black  rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 bg-gray-200 rounded-t-xl">
@@ -44,7 +44,8 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
 
         {/* Image Placeholder */}
         <div className="h-40 bg-gray-300 flex items-center justify-center text-gray-500 text-sm rounded-b-xl">
-          Image Placeholder
+          {/* <Image src= "https://placehold.co/600x400"  alt='placeholder'/> */}
+          image placeholder
         </div>
 
         {/* Content */}

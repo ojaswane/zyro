@@ -13,7 +13,7 @@ interface SpotlightCardProps extends React.PropsWithChildren {
 
 const SpotlightCard: React.FC<SpotlightCardProps> = ({
   children,
-  className = "",
+  className = "w-full max-w-md",
   spotlightColor = "rgba(255, 255, 255, 0.25)"
 }) => {
   const divRef = useRef<HTMLDivElement>(null);
