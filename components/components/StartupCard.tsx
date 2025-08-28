@@ -35,7 +35,7 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
           </div>
           <button className="text-gray-500 cursor-pointer hover:text-gray-700">
 
-            <Link href= '/Startupview' >
+            <Link href='/Startupview' >
               <ExternalLink />
             </Link>
 
@@ -44,8 +44,17 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
 
         {/* Image Placeholder */}
         <div className="h-40 bg-gray-300 flex items-center justify-center text-gray-500 text-sm rounded-b-xl">
-          {/* <Image src= "https://placehold.co/600x400"  alt='placeholder'/> */}
-          image placeholder
+          {posts.image ? (
+            <Image
+              src={posts.image}
+              alt={posts.name ? `${posts.name} image` : "Startup image"}
+              width={320}
+              height={160}
+              className="object-cover w-full h-full rounded-b-xl"
+            />
+          ) : (
+            <span>No Image</span>
+          )}
         </div>
 
         {/* Content */}
