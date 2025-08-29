@@ -1,8 +1,9 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import { Heart, Eye, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
-
+import { useState } from 'react'
 type StartupCardType = {
   _createdAt: string
   title: string
@@ -15,6 +16,9 @@ type StartupCardType = {
 }
 
 function StartupCard({ posts }: { posts: StartupCardType }) {
+
+  const [isLiked, setIsLiked] = useState(false);
+
   return (
     <div className="group relative w-full mb-50 mt-10 max-w-sm bg-black border border-gray-600 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
 
@@ -77,7 +81,13 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
         {/* Footer */}
         <div className="flex justify-between items-center mt-4">
           <button className="w-8 h-8 flex items-center justify-center rounded-full bg-white shadow hover:scale-105 transition">
-            <Heart size={18} className="text-gray-600" />
+            <Heart
+              size={18}
+              className="cursor-pointer transition-all duration-200"
+              fill={isLiked ? "black" : "none"}  
+              color={isLiked ? "black" : "gray"} 
+              onClick={() => setIsLiked(!isLiked)}
+            />
           </button>
           <span className="bg-gray-700/50 px-3 py-1 rounded-full text-xs font-medium text-gray-200">
             {posts._createdAt}
