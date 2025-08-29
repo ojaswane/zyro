@@ -1,7 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
 import { Heart, Eye, ExternalLink } from 'lucide-react'
-import SpotlightCard from '@/Animation/SpotlightCard'
 import Link from 'next/link'
 
 type StartupCardType = {
