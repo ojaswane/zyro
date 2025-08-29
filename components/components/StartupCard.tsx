@@ -19,42 +19,44 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
     <div className="group relative w-full mb-50 mt-10 max-w-sm bg-black border border-gray-600 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
 
       {/* Image Section */}
-      <div className="relative h-40 sm:h-48 md:h-56 lg:h-60">
-        {posts.image ? (
-          <Image
-            src={posts.image}
-            alt={posts.name ? `${posts.name} image` : 'Startup image'}
-            width={400}
-            height={240}
-            className="object-cover w-full h-full rounded-t-2xl transition-all duration-300 group-hover:brightness-50"
-          />
-        ) : (
-          <div className="h-full bg-gray-300 flex items-center justify-center text-gray-500 text-sm rounded-t-2xl">
-            No Image
-          </div>
-        )}
+      <Link href='/Startupview'>
+        <div className="relative h-40 sm:h-48 md:h-56 lg:h-60">
+          {posts.image ? (
+            <Image
+              src={posts.image}
+              alt={posts.name ? `${posts.name} image` : 'Startup image'}
+              width={400}
+              height={240}
+              className="object-cover w-full h-full rounded-t-2xl transition-all duration-300 group-hover:brightness-50"
+            />
+          ) : (
+            <div className="h-full bg-gray-300 flex items-center justify-center text-gray-500 text-sm rounded-t-2xl">
+              No Image
+            </div>
+          )}
 
-        {/* Header Overlay (Appears on Hover) */}
-        <div className="absolute top-0 left-0 w-full px-4 py-3  bg-black/90 backdrop-blur-sm rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <Link href="/profile">
-              <Image
-                src={posts.image || '/default-avatar.png'}
-                alt={posts.name ? `${posts.name} avatar` : 'Startup avatar'}
-                width={32}
-                height={32}
-                className="w-8 h-8 rounded-full border"
-              />
-            </Link>
-            <Link href="/profile">
-              <span className="text-gray-100 font-medium">{posts.name}</span>
+          {/* Header Overlay (Appears on Hover) */}
+          <div className="absolute top-0 left-0 w-full px-4 py-3  bg-black/90 backdrop-blur-sm rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-between items-center">
+            <div className="flex items-center gap-3">
+              <Link href="/profile">
+                <Image
+                  src={posts.image || '/default-avatar.png'}
+                  alt={posts.name ? `${posts.name} avatar` : 'Startup avatar'}
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-full border"
+                />
+              </Link>
+              <Link href="/profile">
+                <span className="text-gray-100 font-medium">{posts.name}</span>
+              </Link>
+            </div>
+            <Link href="/Startupview" className="text-gray-300 hover:text-white transition">
+              <ExternalLink />
             </Link>
           </div>
-          <Link href="/Startupview" className="text-gray-300 hover:text-white transition">
-            <ExternalLink />
-          </Link>
         </div>
-      </div>
+      </Link>
 
       {/* Content */}
       <div className="px-4 py-3">
