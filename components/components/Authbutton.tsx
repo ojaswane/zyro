@@ -10,7 +10,7 @@ const NavbarClient = ({ session }: { session: Session | null }) => {
 
   const handleLogout = async () => {
     try {
-      await signOut({ redirect: false });
+      await signOut({ redirect: true });
       toast.success("🚪 Logged out successfully", { duration: 2000 });
     } catch (error) {
       console.error("Error during sign out:", error);
@@ -20,10 +20,10 @@ const NavbarClient = ({ session }: { session: Session | null }) => {
 
   const handleLogin = async () => {
     try {
-      await signIn("google", { redirect: false });
+      await signIn("github", { redirect: true });
       toast.success("Logged in successfully ✅", { duration: 2000 });
     }
-    catch (error) {
+    catch (error) { 
       console.error("Error during log in:", error);
       toast.error("Failed to log in!");
     }
