@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Lobster } from "next/font/google";
+import 'easymde/dist/easymde.min.css';
 
 const lobster = Lobster({
   weight: "400",

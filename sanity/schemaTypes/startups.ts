@@ -46,12 +46,6 @@ const startup = defineType({
             type: 'markdown',
         }),
     ],
-
-    preview: {
-        select: {
-            title: 'name',
-        }
-    }
 })
 
 export default startup; 
