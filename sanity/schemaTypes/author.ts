@@ -1,5 +1,5 @@
 //  getting the user from sanity
-import { defineType, Preview } from 'sanity';
+import { defineType } from 'sanity';
 import { defineField } from 'sanity';
 import { UserIcon } from '@sanity/icons';
 
