@@ -2,6 +2,8 @@ import Animatetext from "../../components/components/Animatetext";
 import Searchcomponent from "../../components/components/Searchcomponent";
 import StartupCard from "../../components/components/StartupCard";
 import DarkVeil from '@/Animation/Background';
+import { client } from "../../sanity/lib/client";
+import STARTUP_QUERY from "../../sanity/lib/quries";
 
 export default async function Home({
   searchParams,
@@ -10,21 +12,25 @@ export default async function Home({
 }) {
   const query = (await searchParams).query;
 
-  const posts = [
+  const posts = await client.fetch(STARTUP_QUERY);
+  
+  console.log(posts);
 
-    {
-      _createdAt: new Date().toISOString(),
-      title: "Test Post",
-      description: "This is a test post",
-      image:
-        "https://static.vecteezy.com/system/resources/thumbnails/049/191/168/small_2x/a-modern-workspace-featuring-advanced-technology-including-a-holographic-calendar-and-illuminated-data-streams-creating-an-innovative-and-dynamic-environment-for-productivity-photo.jpg",
-      views: 10,
-      author: { _id: 1 },
-      _id: 1,
-      categories: "Tech",
-      name: "Test Author"
-    },
-  ];
+  // const posts = [
+
+  //   {
+  //     _createdAt: new Date().toISOString(),
+  //     title: "Test Post",
+  //     description: "This is a test post",
+  //     image:
+  //       "https://static.vecteezy.com/system/resources/thumbnails/049/191/168/small_2x/a-modern-workspace-featuring-advanced-technology-including-a-holographic-calendar-and-illuminated-data-streams-creating-an-innovative-and-dynamic-environment-for-productivity-photo.jpg",
+  //     views: 10,
+  //     author: { _id: 1 },
+  //     _id: 1,
+  //     categories: "Tech",
+  //     name: "Test Author"
+  //   },
+  // ];
 
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-black text-white">
