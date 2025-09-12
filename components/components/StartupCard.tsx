@@ -35,7 +35,7 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
           {posts.image ? (
             <Image
               src={posts.image}
-              alt={posts.name ? `${posts.name} image` : 'Startup image'}
+              alt={posts.author.name ? `${posts.author.name} image` : 'Startup image'}
               width={400}
               height={240}
               className="object-cover w-full h-full rounded-t-2xl transition-all duration-300 group-hover:brightness-50"
@@ -52,14 +52,14 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
               <Link href="/profile">
                 <Image
                   src={posts.image || '/default-avatar.png'}
-                  alt={posts.name ? `${posts.name} avatar` : 'Startup avatar'}
+                  alt={posts.author.name ? `${posts.author.name} avatar` : 'Startup avatar'}
                   width={32}
                   height={32}
                   className="w-8 h-8 rounded-full border"
                 />
               </Link>
               <Link href="/profile">
-                <span className="text-gray-100 font-medium">{posts.name}</span>
+                <span className="text-gray-100 font-medium">{posts.author.name}</span>
               </Link>
             </div>
             <Link href="/Startupview" className="text-gray-300 hover:text-white transition">

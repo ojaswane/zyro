@@ -14,7 +14,7 @@ type StartupCardType = {
   image: string;
   views: number;
   category: string;
-  name: string,
+  // name: string,
   author: {
     _id: string;
     name: string;
