@@ -11,14 +11,13 @@ type StartupCardType = {
   _createdAt: string;
   title: string;
   description: string;
-  image: string;
+  image: URL;
   views: number;
   category: string;
-  // name: string,
   author: {
     _id: string;
     name: string;
-    image: string;
+    image: URL;
     bio: string;
   };
 };

@@ -10,14 +10,13 @@ type StartupCardType = {
   _createdAt: string;
   title: string;
   description: string;
-  image: string;
+  image: URL;
   views: number;
   category: string;
-  name: string,
   author: {
     _id: string;
     name: string;
-    image: string;
+    image: URL;
     bio: string;
   };
 };
@@ -51,7 +50,7 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
             <div className="flex items-center gap-3">
               <Link href="/profile">
                 <Image
-                  src={posts.image || '/default-avatar.png'}
+                  src={posts.author.image || '/default-avatar.png'}
                   alt={posts.author.name ? `${posts.author.name} avatar` : 'Startup avatar'}
                   width={32}
                   height={32}
@@ -91,8 +90,8 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
             <Heart
               size={18}
               className="cursor-pointer transition-all duration-200"
-              fill={isLiked ? "black" : "none"}  
-              color={isLiked ? "black" : "gray"} 
+              fill={isLiked ? "black" : "none"}
+              color={isLiked ? "black" : "gray"}
               onClick={() => setIsLiked(!isLiked)}
             />
           </button>
