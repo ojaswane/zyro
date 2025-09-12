@@ -5,6 +5,19 @@ import DarkVeil from '@/Animation/Background';
 import { client } from "../../sanity/lib/client";
 import STARTUP_QUERY from "../../sanity/lib/quries";
 
+// Define the StartupCardType type based on the expected post structure
+type StartupCardType = {
+  _createdAt: string;
+  title: string;
+  description: string;
+  image: string;
+  views: number;
+  author: { _id: number };
+  _id: number;
+  category: string;
+  name: string;
+};
+
 export default async function Home({
   searchParams,
 }: {
@@ -14,7 +27,7 @@ export default async function Home({
 
   const posts = await client.fetch(STARTUP_QUERY);
   
-  console.log(posts);
+  console.log(JSON.stringify(posts));
 
   // const posts = [
 
