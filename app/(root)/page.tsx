@@ -7,16 +7,22 @@ import STARTUP_QUERY from "../../sanity/lib/quries";
 
 // Define the StartupCardType type based on the expected post structure
 type StartupCardType = {
+  _id: string;
   _createdAt: string;
   title: string;
   description: string;
   image: string;
   views: number;
-  author: { _id: number };
-  _id: number;
   category: string;
-  name: string;
+  name: string,
+  author: {
+    _id: string;
+    name: string;
+    image: string;
+    bio: string;
+  };
 };
+
 
 export default async function Home({
   searchParams,
@@ -26,7 +32,7 @@ export default async function Home({
   const query = (await searchParams).query;
 
   const posts = await client.fetch(STARTUP_QUERY);
-  
+
   console.log(JSON.stringify(posts));
 
   // const posts = [
@@ -89,13 +95,13 @@ export default async function Home({
           {query ? `Search results for "${query}"` : "Trending Startups"}
         </p>
 
-        <ul className="mt-8 md:mt-10 grid gap-6 sm:gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full px-50">
+        <ul>
           {posts?.length > 0 ? (
-            posts.map((post: StartupCardType, index: number) => (
-              <StartupCard key={post?._id} posts={post} />
+            posts.map((post: StartupCardType) => (
+              <StartupCard key={post._id} posts={post} />
             ))
           ) : (
-            <p className="text-gray-500">No results found</p>
+            <p>No results found</p>
           )}
         </ul>
       </section>

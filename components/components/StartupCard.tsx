@@ -4,16 +4,23 @@ import Image from 'next/image'
 import { Heart, Eye, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+
 type StartupCardType = {
-  _createdAt: string
-  title: string
-  description: string
-  image: string
-  views: number
-  _id: number
-  category: string
-  name: string
-}
+  _id: string;
+  _createdAt: string;
+  title: string;
+  description: string;
+  image: string;
+  views: number;
+  category: string;
+  name: string,
+  author: {
+    _id: string;
+    name: string;
+    image: string;
+    bio: string;
+  };
+};
 
 function StartupCard({ posts }: { posts: StartupCardType }) {
 
