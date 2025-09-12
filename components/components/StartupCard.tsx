@@ -33,7 +33,7 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
         <div className="relative h-40 sm:h-48 md:h-56 lg:h-60">
           {posts.image ? (
             <Image
-              src={posts.image}
+              src={posts.image ? posts.image.toString() : ''}
               alt={posts.author.name ? `${posts.author.name} image` : 'Startup image'}
               width={400}
               height={240}
@@ -50,7 +50,7 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
             <div className="flex items-center gap-3">
               <Link href="/profile">
                 <Image
-                  src={posts.author.image || '/default-avatar.png'}
+                  src={posts.author.image ? posts.author.image.toString() : ''}
                   alt={posts.author.name ? `${posts.author.name} avatar` : 'Startup avatar'}
                   width={32}
                   height={32}
