@@ -3,6 +3,7 @@ const STARTUP_QUERY = defineQuery(`*[_type == "startup" && defined(slug.current)
   _id, 
   title,
   _createdAt,
+  slug,
   author -> {
     _id,
     name,
