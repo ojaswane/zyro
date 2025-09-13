@@ -11,13 +11,13 @@ type StartupCardType = {
   _createdAt: string;
   title: string;
   description: string;
-  image: URL;
+  image: string;
   views: number;
   category: string;
   author: {
     _id: string;
     name: string;
-    image: URL;
+    image: string;
     bio: string;
   };
 };
@@ -30,9 +30,8 @@ export default async function Home({
 }) {
   const query = (await searchParams).query;
 
-  const posts = await client.fetch(STARTUP_QUERY);
+  // const posts = await client.fetch(STARTUP_QUERY);
 
-  console.log(JSON.stringify(posts));
 
   // const posts = [
 
@@ -41,15 +40,59 @@ export default async function Home({
   //     title: "Test Post",
   //     description: "This is a test post",
   //     image:
-  //       "https://static.vecteezy.com/system/resources/thumbnails/049/191/168/small_2x/a-modern-workspace-featuring-advanced-technology-including-a-holographic-calendar-and-illuminated-data-streams-creating-an-innovative-and-dynamic-environment-for-productivity-photo.jpg",
+  //     `https://static.vecteezy.com/system/resources/thumbnails/049/191/168/small_2x/a-modern-workspace-featuring-advanced-technology-including-a-holographic-calendar-and-illuminated-data-streams-creating-an-innovative-and-dynamic-environment-for-productivity-photo.jpg`,
   //     views: 10,
-  //     author: { _id: 1 },
-  //     _id: 1,
+  //     author: {
+  //       _id: 1,
+  //       name: 'ojas',
+  //       image: `https://static.vecteezy.com/system/resources/thumbnails/049/191/168/small_2x/a-modern-workspace-featuring-advanced-technology-including-a-holographic-calendar-and-illuminated-data-streams-creating-an-innovative-and-dynamic-environment-for-productivity-photo.jpg`,
+  //     },
+
   //     categories: "Tech",
-  //     name: "Test Author"
+  //     // name: "Test Author"
   //   },
   // ];
+  const rawPosts = await client.fetch(STARTUP_QUERY);
 
+  // Map and sanitize data
+  type RawPostType = {
+    _id: string;
+    _createdAt: string;
+    title: string;
+    description: string;
+    image?: { asset?: { url?: string } } | string;
+    views?: number;
+    category?: string;
+    author?: {
+      _id?: string;
+      name?: string;
+      image?: { asset?: { url?: string } } | string;
+      bio?: string;
+    };
+  };
+
+  const posts: StartupCardType[] = (rawPosts as RawPostType[]).map((post: RawPostType) => ({
+    _id: post._id,
+    _createdAt: post._createdAt,
+    title: post.title,
+    description: post.description,
+    image: typeof post.image === 'string'
+      ? post.image
+      : post.image?.asset?.url || '/window.svg',
+    views: post.views ?? 0,
+    category: post.category ?? '',
+    author: {
+      _id: post.author?._id ?? '',
+      name: post.author?.name ?? '',
+      image: typeof post.author?.image === 'string'
+        ? post.author?.image
+        : post.author?.image?.asset?.url || '/default-avatar.png',
+      bio: post.author?.bio ?? '',
+    },
+  }));
+
+
+  console.log(JSON.stringify(posts));
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-black text-white">
       <section className="relative flex flex-col items-center justify-center w-full px-4 md:px-8 lg:px-16 min-h-screen ">
