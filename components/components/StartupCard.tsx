@@ -33,7 +33,7 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
         <div className="relative h-40 sm:h-48 md:h-56 lg:h-60">
           {posts.image ? (
             <Image
-              src={posts.image ? posts.image.toString() : ''}
+              src={posts.image ? posts.image.toString() : '/zyro/public/window.svg'}
               alt={posts.author.name ? `${posts.author.name} image` : 'Startup image'}
               width={400}
               height={240}
