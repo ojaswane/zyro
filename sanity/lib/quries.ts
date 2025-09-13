@@ -1,4 +1,5 @@
 import { defineQuery } from "next-sanity";
+
 const STARTUP_QUERY = defineQuery(`*[_type == "startup" && defined(slug.current)] | order(_createdAt desc){
   _id, 
   title,
@@ -7,13 +8,21 @@ const STARTUP_QUERY = defineQuery(`*[_type == "startup" && defined(slug.current)
   author -> {
     _id,
     name,
-    image,
+    image {
+      asset->{
+        url
+      }
+    },
     bio
   },
   views,
   description,
   category, 
-  image    
-}`)
+  image {
+    asset->{
+      url
+    }
+  }
+}`);
 
 export default STARTUP_QUERY;

@@ -27,9 +27,10 @@ export default async function Home({
 }: {
   searchParams: Promise<{ query?: string }>;
 }) {
-  // Await searchParams
+  // ✅ Await searchParams (Next.js 15 requirement)
   const { query = "" } = await searchParams;
 
+  // Fetch posts from Sanity
   const rawPosts = await client.fetch(STARTUP_QUERY);
 
   // Map and sanitize data
@@ -71,7 +72,7 @@ export default async function Home({
     },
   }));
 
-  console.log(JSON.stringify(posts));
+  console.log("Posts fetched:", posts);
 
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-black text-white">
