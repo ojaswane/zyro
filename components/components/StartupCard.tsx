@@ -34,46 +34,42 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
       {/* Image Section */}
       <Link href='/Startupview'>
         <div className="relative h-40 sm:h-48 md:h-56 lg:h-60">
-          {posts.image ? (
-            <Image
-              src={mainImageSrc}
-              alt={posts.author.name ? `${posts.author.name} image` : 'Startup image'}
-              width={400}
-              height={240}
-              className="object-cover w-full h-full rounded-t-2xl transition-all duration-300 group-hover:brightness-50"
-            />
-          ) : (
-            <div className="h-full bg-gray-300 flex items-center justify-center text-gray-500 text-sm rounded-t-2xl">
-              No Image
-            </div>
-          )}
-
-          {/* Header Overlay (Appears on Hover) */}
-          {/* Profile of the author */}
-          <div className="absolute top-0 left-0 w-full px-4 py-3  bg-black/90 backdrop-blur-sm rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <Link href="/profile">
-                <Image
-                  src={authorImageSrc}
-                  alt={posts.author.name ? `${posts.author.name} avatar` : 'Startup avatar'}
-                  width={32}
-                  height={32}
-                  className="w-8 h-8 rounded-full border"
-                />
-              </Link>
-              <Link href="/profile">
-                <span className="text-gray-100 font-medium">{posts.author.name}</span>
-              </Link>
-            </div>
-            <Link href="/Startupview" className="text-gray-300 hover:text-white transition">
-              <ExternalLink />
-            </Link>
-          </div>
+          <Image
+            src={mainImageSrc}
+            alt={posts.title ? `${posts.title} image` : 'Startup image'}
+            width={400}
+            height={240}
+            className="object-cover w-full h-full rounded-t-2xl transition-all duration-300 group-hover:brightness-50"
+          />
+          {/* ...overlay code... */}
         </div>
       </Link>
 
+      {/* Header Overlay (Appears on Hover) */}
+      {/* Profile of the author */}
+      <div className="absolute top-0 left-0 w-full px-4 py-3  bg-black/90 backdrop-blur-sm rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-between items-center">
+        <div className="flex items-center gap-3">
+          <Link href="/profile">
+            <Image
+              src={authorImageSrc}
+              alt={posts.author.name ? `${posts.author.name} avatar` : 'Startup avatar'}
+              width={32}
+              height={32}
+              className="w-8 h-8 rounded-full border"
+            />
+          </Link>
+          <Link href="/profile">
+            <span className="text-gray-100 font-medium">{posts.author.name}</span>
+          </Link>
+        </div>
+        <Link href="/Startupview" className="text-gray-300 hover:text-white transition">
+          <ExternalLink />
+        </Link>
+      </div>
+
+
       {/* Content */}
-      <div className="px-4 py-3">
+      < div className="px-4 py-3" >
         <div className="flex justify-between items-center mb-1">
           <h2 className="text-lg font-semibold text-gray-100">{posts.title}</h2>
           <div className="flex items-center gap-1 text-gray-400 text-sm">
@@ -103,9 +99,8 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
             {posts._createdAt}
           </span>
         </div>
-      </div>
+      </div >
     </div>
-
   )
 }
 

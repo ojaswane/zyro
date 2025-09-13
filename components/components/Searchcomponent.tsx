@@ -1,6 +1,9 @@
 import Form from 'next/form';
 import SearchFormreset from './SearchFormreset';
 import { Search } from 'lucide-react';
+
+
+
 function Searchcomponent(query: { query: string }) {
   return (
 
