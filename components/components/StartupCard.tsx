@@ -24,6 +24,9 @@ type StartupCardType = {
 function StartupCard({ posts }: { posts: StartupCardType }) {
 
   const [isLiked, setIsLiked] = useState(false);
+  const mainImageSrc = posts.image ? posts.image.toString() : '/window.svg';
+  const authorImageSrc = posts.author.image ? posts.author.image.toString() : '/default-avatar.svg';
+
 
   return (
     <div className="group relative w-full mb-50 mt-10 max-w-sm bg-black border border-gray-600 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
@@ -33,7 +36,7 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
         <div className="relative h-40 sm:h-48 md:h-56 lg:h-60">
           {posts.image ? (
             <Image
-              src={posts.image ? posts.image.toString() : '/zyro/public/window.svg'}
+              src={mainImageSrc}
               alt={posts.author.name ? `${posts.author.name} image` : 'Startup image'}
               width={400}
               height={240}
@@ -46,11 +49,12 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
           )}
 
           {/* Header Overlay (Appears on Hover) */}
+          {/* Profile of the author */}
           <div className="absolute top-0 left-0 w-full px-4 py-3  bg-black/90 backdrop-blur-sm rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex justify-between items-center">
             <div className="flex items-center gap-3">
               <Link href="/profile">
                 <Image
-                  src={posts.author.image ? posts.author.image.toString() : ''}
+                  src={authorImageSrc}
                   alt={posts.author.name ? `${posts.author.name} avatar` : 'Startup avatar'}
                   width={32}
                   height={32}
