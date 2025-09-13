@@ -1,23 +1,17 @@
-"use client"
-import React from 'react'
-import Link from 'next/link'
-import { X } from 'lucide-react'
-function SearchFormreset() {
+"use client";
 
-    const reset = () => {
-        const form = document.querySelector('.search-form') as HTMLFormElement;
-        if (form) {
-            form.reset();
-        }
-    }
-    // This function resets the form when the button is clicked
+import { X } from "lucide-react";
+
+function SearchFormreset() {
   return (
-    <button type="reset" onClick={reset}>
-        <Link href='/' className="flex mx-1">
-            <X className="size-5" />
-        </Link>
+    <button
+      type="reset"
+      className="flex mx-1"
+      aria-label="Reset search"
+    >
+      <X className="size-5" />
     </button>
-  )
+  );
 }
 
-export default SearchFormreset
+export default SearchFormreset;

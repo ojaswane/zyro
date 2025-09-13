@@ -22,36 +22,14 @@ type StartupCardType = {
   };
 };
 
-
 export default async function Home({
   searchParams,
 }: {
-  searchParams: Promise<{ query: string }>;
+  searchParams: Promise<{ query?: string }>;
 }) {
-  const query = (await searchParams).query;
+  // Await searchParams
+  const { query = "" } = await searchParams;
 
-  // const posts = await client.fetch(STARTUP_QUERY);
-
-
-  // const posts = [
-
-  //   {
-  //     _createdAt: new Date().toISOString(),
-  //     title: "Test Post",
-  //     description: "This is a test post",
-  //     image:
-  //     `https://static.vecteezy.com/system/resources/thumbnails/049/191/168/small_2x/a-modern-workspace-featuring-advanced-technology-including-a-holographic-calendar-and-illuminated-data-streams-creating-an-innovative-and-dynamic-environment-for-productivity-photo.jpg`,
-  //     views: 10,
-  //     author: {
-  //       _id: 1,
-  //       name: 'ojas',
-  //       image: `https://static.vecteezy.com/system/resources/thumbnails/049/191/168/small_2x/a-modern-workspace-featuring-advanced-technology-including-a-holographic-calendar-and-illuminated-data-streams-creating-an-innovative-and-dynamic-environment-for-productivity-photo.jpg`,
-  //     },
-
-  //     categories: "Tech",
-  //     // name: "Test Author"
-  //   },
-  // ];
   const rawPosts = await client.fetch(STARTUP_QUERY);
 
   // Map and sanitize data
@@ -76,23 +54,25 @@ export default async function Home({
     _createdAt: post._createdAt,
     title: post.title,
     description: post.description,
-    image: typeof post.image === 'string'
-      ? post.image
-      : post.image?.asset?.url || '/window.svg',
+    image:
+      typeof post.image === "string"
+        ? post.image
+        : post.image?.asset?.url ?? "/window.svg",
     views: post.views ?? 0,
-    category: post.category ?? '',
+    category: post.category ?? "",
     author: {
-      _id: post.author?._id ?? '',
-      name: post.author?.name ?? '',
-      image: typeof post.author?.image === 'string'
-        ? post.author?.image
-        : post.author?.image?.asset?.url || '/default-avatar.png',
-      bio: post.author?.bio ?? '',
+      _id: post.author?._id ?? "",
+      name: post.author?.name ?? "",
+      image:
+        typeof post.author?.image === "string"
+          ? post.author?.image
+          : post.author?.image?.asset?.url ?? "/default-avatar.png",
+      bio: post.author?.bio ?? "",
     },
   }));
 
-
   console.log(JSON.stringify(posts));
+
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-black text-white">
       <section className="relative flex flex-col items-center justify-center w-full px-4 md:px-8 lg:px-16 min-h-screen ">
@@ -115,7 +95,6 @@ export default async function Home({
           </p>
         </div>
       </section>
-
 
       {/* DISCOVER PEOPLE SECTION */}
       <section className="flex flex-col items-center w-full px-4 md:px-8 lg:px-16 mt-16 md:mt-20">
