@@ -25,7 +25,7 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
 
   const [isLiked, setIsLiked] = useState(false);
   const mainImageSrc = posts.image ? posts.image.toString() : '/window.svg';
-  const authorImageSrc = posts.author.image ? posts.author.image.toString() : '/dafault-avatar.png';
+  const authorImageSrc = posts.author.image ? posts.author.image.toString() : '/default-avatar.png';
 
 
   return (
