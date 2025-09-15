@@ -25,13 +25,13 @@ function StartupCard({ posts }: { posts: StartupCardType }) {
 
   return (
     <div className="group relative w-full mb-50 mt-10 max-w-sm bg-black border border-gray-600 rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-      
+
       {/* Image Section */}
       <Link href='/Startupview'>
         <div className="relative h-40 sm:h-48 md:h-56 lg:h-60">
           <Image
-            src={posts.image}
-            alt={posts.title ? `${posts.title} image` : 'Startup image'}
+            src={posts.image.startsWith('http') ? posts.image : '/default-image.png'}
+            alt={posts.title}
             width={400}
             height={240}
             className="object-cover w-full h-full rounded-t-2xl transition-all duration-300 group-hover:brightness-50"

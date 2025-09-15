@@ -47,5 +47,4 @@ const startup = defineType({
         }),
     ],
 })
-
 export default startup;
