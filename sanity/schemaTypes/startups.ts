@@ -21,7 +21,7 @@ const startup = defineType({
         defineField({
             name: 'author',
             type: 'reference',
-            to: [{type: 'author'}],
+            to: [{ type: 'author' }],
         }),
         defineField({
             name: 'views',
@@ -38,7 +38,7 @@ const startup = defineType({
         }),
         defineField({
             name: 'image',
-            type: 'url',
+            type: 'image', // <-- change from 'url' to 'image'
             validation: (Rule) => Rule.required().error('Image is required'), //this validates that the image is required
         }),
         defineField({
@@ -48,4 +48,4 @@ const startup = defineType({
     ],
 })
 
-export default startup; 
+export default startup;

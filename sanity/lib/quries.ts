@@ -1,6 +1,6 @@
 import { defineQuery } from "next-sanity";
 
-const STARTUP_QUERY = defineQuery(`*[_type == "startup" && defined(slug.current)] | order(_createdAt desc){
+const STARTUP_QUERY = defineQuery(`*[_type == "startup"] | order(_createdAt desc){
   _id, 
   title,
   _createdAt,

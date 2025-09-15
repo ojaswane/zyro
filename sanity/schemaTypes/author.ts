@@ -7,7 +7,7 @@ const author = defineType({
     name: 'author',
     title: 'Author',
     type: 'document',
-    icon: UserIcon ,
+    icon: UserIcon,
     fields: [
         defineField({
             name: 'name',
@@ -27,7 +27,7 @@ const author = defineType({
         }),
         defineField({
             name: 'image',
-            type: 'url',
+            type: 'image', // <-- change from 'url' to 'image'
         }),
         defineField({
             name: 'bio',
@@ -42,4 +42,4 @@ const author = defineType({
     }
 })
 
-export default author; 
+export default author;
