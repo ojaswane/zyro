@@ -6,20 +6,19 @@ import { client } from "../../sanity/lib/client";
 import STARTUP_QUERY from "../../sanity/lib/quries";
 
 // Define the StartupCardType type based on the expected post structure
-
 type StartupCardType = {
   _id: string;
   _createdAt: string;
   title: string;
   description: string;
   slug: string;
-  image: string;  
+  image: string;
   views: number;
   category: string;
   author: {
     _id: string;
     name: string;
-    image: string; 
+    image: string;
     bio: string;
   };
 };
@@ -33,48 +32,55 @@ export default async function Home({
   const { query = "" } = await searchParams;
 
   // Fetch posts from Sanity
-  const rawPosts = await client.fetch(STARTUP_QUERY);
+  // const rawPosts = await client.fetch(STARTUP_QUERY);
+  // console.log("Raw posts from Sanity:", JSON.stringify(rawPosts, null, 2));
+  const rawPosts = await client.fetch(`*[_type == "startup"]{_id, title}`);
+  console.log("Simple test:", rawPosts);
+  
+  console.log("ENV check from Next.js:", {
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
+});
 
-  // Map and sanitize data
+
+  // Define type for raw posts
   type RawPostType = {
     _id: string;
     _createdAt: string;
     title: string;
     description: string;
-    image?: { asset?: { url?: string } } | string;
+    slug?: { current?: string };
+    image?: { asset?: { url?: string } };
     views?: number;
     category?: string;
     author?: {
       _id?: string;
       name?: string;
-      image?: { asset?: { url?: string } } | string;
+      image?: { asset?: { url?: string } };
       bio?: string;
     };
   };
 
-  const posts: StartupCardType[] = (rawPosts as RawPostType[]).map((post: RawPostType) => ({
+  // Map and sanitize data
+  const posts: StartupCardType[] = (rawPosts as RawPostType[]).map((post) => ({
     _id: post._id,
     _createdAt: post._createdAt,
     title: post.title,
     description: post.description,
-    image:
-      typeof post.image === "string"
-        ? post.image
-        : post.image?.asset?.url ?? "/window.svg",
+    slug: post.slug?.current ?? "",
+    image: post.image?.asset?.url ?? "/window.svg",
     views: post.views ?? 0,
     category: post.category ?? "",
     author: {
       _id: post.author?._id ?? "",
       name: post.author?.name ?? "",
-      image:
-        typeof post.author?.image === "string"
-          ? post.author?.image
-          : post.author?.image?.asset?.url ?? "/default-avatar.png",
+      image: post.author?.image?.asset?.url ?? "/default-avatar.png",
       bio: post.author?.bio ?? "",
     },
   }));
 
-  console.log("Posts fetched:", posts);
+  console.log("Mapped posts:", posts);
 
   return (
     <div className="flex flex-col items-center w-full min-h-screen bg-black text-white">
@@ -114,14 +120,14 @@ export default async function Home({
       </section>
 
       {/* STARTUPS SECTION */}
-      <section className="w-full  md:px-8 lg:px-16 mt-16 md:mt-20 flex flex-col items-center px-32">
+      <section className="w-full md:px-8 lg:px-16 mt-16 md:mt-20 flex flex-col items-center px-32">
         <p className="text-lg sm:text-xl md:text-2xl font-bold self-start">
           {query ? `Search results for "${query}"` : "Trending Startups"}
         </p>
 
         <ul>
           {posts?.length > 0 ? (
-            posts.map((post: StartupCardType) => (
+            posts.map((post) => (
               <StartupCard key={post._id} posts={post} />
             ))
           ) : (
