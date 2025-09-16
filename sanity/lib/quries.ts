@@ -17,7 +17,7 @@ const STARTUP_QUERY = defineQuery(`*[_type == "startup"] | order(_createdAt desc
   },
   views,
   description,
-  category, 
+  category,
   image {
     asset->{
       url

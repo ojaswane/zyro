@@ -6,18 +6,20 @@ import { client } from "../../sanity/lib/client";
 import STARTUP_QUERY from "../../sanity/lib/quries";
 
 // Define the StartupCardType type based on the expected post structure
+
 type StartupCardType = {
   _id: string;
   _createdAt: string;
   title: string;
   description: string;
-  image: string;
+  slug: string;
+  image: string;  
   views: number;
   category: string;
   author: {
     _id: string;
     name: string;
-    image: string;
+    image: string; 
     bio: string;
   };
 };
