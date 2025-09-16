@@ -38,7 +38,7 @@ const startup = defineType({
         }),
         defineField({
             name: 'image',
-            type: 'image', // <-- change from 'url' to 'image'
+            type: 'image', 
             validation: (Rule) => Rule.required().error('Image is required'), //this validates that the image is required
         }),
         defineField({
