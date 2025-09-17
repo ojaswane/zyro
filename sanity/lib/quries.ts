@@ -1,16 +1,26 @@
-const STARTUP_QUERY = defineQuery(`*[_type == "startup"] | order(_createdAt desc){
+import { defineQuery } from "next-sanity";
+
+const STARTUP_QUERY = defineQuery(`
+*[_type == "startup" | order(_createdAt desc) {
   _id,
   title,
   _createdAt,
   slug,
-  author -> {
-    _id,
-    name,
-    image,
-    bio
-  },
   views,
   description,
   category,
-  image    
-}`)
+  image {
+    asset->{url}
+  },
+  author -> {
+    _id,
+    name,
+    bio,
+    image {
+      asset->{url}
+    }
+  }
+}
+`);
+
+export default STARTUP_QUERY;
